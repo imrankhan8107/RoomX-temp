@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable comma-dangle */
 // external import
 const mongoose = require('mongoose');

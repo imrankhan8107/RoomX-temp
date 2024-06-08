@@ -1,14 +1,15 @@
+/* eslint-disable prettier/prettier */
 // external import
 const express = require('express');
 
 // internal importe
 const {
-    createRoom,
-    updateRoom,
-    deleteRoom,
-    getOneRoom,
-    getAllRoom,
-    updateRoomAvailability,
+  createRoom,
+  updateRoom,
+  deleteRoom,
+  getOneRoom,
+  getAllRoom,
+  updateRoomAvailability,
 } = require('../controllers/roomController');
 
 const router = express.Router();

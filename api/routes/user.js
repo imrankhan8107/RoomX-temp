@@ -1,14 +1,15 @@
+/* eslint-disable prettier/prettier */
 // external import
 const express = require('express');
 
 // internal importe
 const {
-    signup,
-    login,
-    updateUser,
-    deleteUser,
-    getOneUser,
-    getAllUser,
+  signup,
+  login,
+  updateUser,
+  deleteUser,
+  getOneUser,
+  getAllUser,
 } = require('../controllers/userController');
 
 const router = express.Router();

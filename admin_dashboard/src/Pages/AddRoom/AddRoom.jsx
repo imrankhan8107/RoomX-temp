@@ -28,7 +28,7 @@ function AddRoom({ inputs, title, type }) {
    update the state variables `roomData` with the response data. */
   useEffect(() => {
     const roomsss = async () => {
-      const hotel = await axios.get("http://localhost:4000/api/hotels");
+      const hotel = await axios.get("http://localhost:4000/api/hotels"); 
       setRoomData(hotel.data.message);
     };
     roomsss();
@@ -55,6 +55,7 @@ function AddRoom({ inputs, title, type }) {
       setLoading(true);
 
       await axios.post(`http://localhost:4000/api/room/${hotelId}`, datas);
+      await axios.post('')
 
       setLoading(false);
       nevigate(`/rooms`);

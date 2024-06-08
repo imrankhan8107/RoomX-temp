@@ -151,7 +151,7 @@ const hotelInpDetails = [
     name: "name",
     lable: "Name",
     type: "text",
-    placeholder: "Hotel Name",
+    placeholder: "Org Name",
     required: true,
     errorMsg: "Name is required!",
   },
@@ -160,7 +160,8 @@ const hotelInpDetails = [
     name: "type",
     lable: "Type",
     type: "text",
-    placeholder: "Hotel, Resort",
+    placeholder: "Office Space",
+    value: "Office Space",
     required: true,
     errorMsg: "Type is required!",
   },
@@ -178,7 +179,7 @@ const hotelInpDetails = [
     name: "title",
     lable: "Title",
     type: "text",
-    placeholder: "Hotel title",
+    placeholder: "Org title",
     required: true,
     errorMsg: "Title is required!",
   },
@@ -187,7 +188,7 @@ const hotelInpDetails = [
     name: "desc",
     lable: "Description",
     type: "text",
-    placeholder: "Hotel description",
+    placeholder: "Org description",
     required: true,
     errorMsg: "Description is required!",
   },
@@ -196,7 +197,7 @@ const hotelInpDetails = [
     name: "price",
     lable: "Price",
     type: "number",
-    placeholder: "Hotel price",
+    placeholder: "Org price",
     min: 10,
     max: 1000,
     required: true,
@@ -231,7 +232,7 @@ const roomInpDetails = [
     name: "title",
     lable: "Title",
     type: "text",
-    placeholder: "Hotel title",
+    placeholder: "Org title",
     required: true,
     errorMsg: "Title is required!",
   },
@@ -240,7 +241,7 @@ const roomInpDetails = [
     name: "desc",
     lable: "Description",
     type: "text",
-    placeholder: "Hotel description",
+    placeholder: "Org description",
     required: true,
     errorMsg: "Description is required!",
   },
@@ -249,7 +250,7 @@ const roomInpDetails = [
     name: "price",
     lable: "Price",
     type: "number",
-    placeholder: "Hotel price",
+    placeholder: "Org price",
     min: 10,
     max: 1000,
     required: true,
@@ -334,7 +335,7 @@ function App() {
               />
             </Route>
             {/* nested hotel routes */}
-            <Route path="hotels">
+            <Route path="orgs">
               <Route
                 index
                 element={

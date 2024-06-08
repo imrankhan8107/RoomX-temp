@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable array-callback-return */
+import axios from "axios";
 import React, { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { Context } from "../../ContextApi/Context";
@@ -18,6 +19,7 @@ function Reserve({ setOpen, hotelId, rooms }) {
         ? [...selectedRoom, value]
         : selectedRoom.filter((item) => item !== value)
     );
+    console.log(value);
   };
 
   const getDateRange = (startDate, endDate) => {
@@ -48,8 +50,41 @@ function Reserve({ setOpen, hotelId, rooms }) {
     setOpen(false);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    console.log(hotelId);
+    console.log(allDates);
+    console.log(selectedRoom);
+    // await axios
+    //   .put(`http://localhost:4000/api/room/availability/${hotelId}`, {
+    //     roomNumbers: selectedRoom,
+    //     dates: allDates,
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    const response = await fetch(
+      `http://localhost:4000/api/room/availability/${hotelId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          roomNumbers: selectedRoom,
+          dates: allDates,
+        }),
+      }
+    );
+    // Awaiting response.json()
+    const resData = await response.json();
+
+    // Return response data
     setOpen(false);
+    console.log(resData);
+    return resData;
   };
 
   return (
@@ -63,9 +98,6 @@ function Reserve({ setOpen, hotelId, rooms }) {
             <div className={style.room_item} key={room._id}>
               <div className={style.room_item_info}>
                 <p className={style.room_item_title}>{room.title}</p>
-                <p>
-                  {room.bathroom} Bathroom, {room.sleep} Sleep
-                </p>
                 <p>Max people: {room.maxPeople}</p>
                 <span>${room.price}</span>
               </div>

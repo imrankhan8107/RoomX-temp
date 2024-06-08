@@ -13,7 +13,7 @@ export default function Reducer(state, action) {
                     },
                 ],
                 options: {
-                    adult: 1,
+                    adult: 1, 
                     children: 0,
                     rooms: 1,
                 },

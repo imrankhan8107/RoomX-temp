@@ -9,14 +9,14 @@ import style from './searchitem.module.scss';
 function SearchItem({ results }) {
     return (
         <div className={style.search_item}>
-            <Link href={`/hotels/${results._id}`}>
+            <Link href={`/orgss/${results._id}`}>
                 <div className={style.search_item_img} style={{ position: 'relative' }}>
-                    <Image src={results.images.length > 0 ? results.images[0] : noPhoto} height={260} width={270} layout="responsive" alt="Hotels"  />
+                    <Image src={results.images.length > 0 ? results.images[0] : noPhoto} height={260} width={270} layout="responsive" alt="Orgs"  />
                 </div>
             </Link>
 
             <div className={style.search_item_details}>
-                <Link href={`/hotels/${results._id}`}>
+                <Link href={`/orgss/${results._id}`}>
                     <h3>{results.name}</h3>
                 </Link>
 
@@ -45,7 +45,7 @@ function SearchItem({ results }) {
                 <div className={style.search_item_price}>
                     <p>${results.price}</p>
 
-                    <Link href={`/hotels/${results._id}`}>
+                    <Link href={`/orgs/${results._id}`}>
                         <button type="button">View Details</button>
                     </Link>
                 </div>

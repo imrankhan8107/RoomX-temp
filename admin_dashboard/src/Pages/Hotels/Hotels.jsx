@@ -175,7 +175,7 @@ function Hotels({ type }) {
               }/addnew`}
               style={{ textDecoration: "none" }}
             >
-              <button type="button">Create New Hotel</button>
+              <button type="button">Create New Org</button>
             </Link>
           </div>
           <DataGrid

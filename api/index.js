@@ -1,15 +1,16 @@
+/* eslint-disable prettier/prettier */
 // import external modules
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const cookieparser = require("cookie-parser");
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const cookieparser = require('cookie-parser');
 
 // import internal modules
-const userRoute = require("./routes/user");
-const hotelRoute = require("./routes/hotel");
-const roomRoute = require("./routes/room");
-const blogRoute = require("./routes/blog");
+const userRoute = require('./routes/user');
+const hotelRoute = require('./routes/hotel');
+const roomRoute = require('./routes/room');
+const blogRoute = require('./routes/blog');
 
 const app = express();
 
@@ -26,37 +27,34 @@ dotenv.config();
 // .connect(process.env.DATABASE_URL, {
 // mongodb://localhost:27017
 mongoose
-  .connect(
-    "mongodb+srv://imranpathan8202:imrankhan7971@cluster0.m9vx7ik.mongodb.net/",
-    {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-    }
-  )
+  .connect('mongodb://localhost:27017', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
   .then(() => {
-    console.log("Connected to database");
+    console.log('Connected to database');
   })
   .catch((err) => {
     console.log(err.message);
   });
 
 // application routes
-app.use("/api", userRoute);
-app.use("/api", hotelRoute);
-app.use("/api", roomRoute);
-app.use("/api", blogRoute);
+app.use('/api', userRoute);
+app.use('/api', hotelRoute);
+app.use('/api', roomRoute);
+app.use('/api', blogRoute);
 
 // home route
 app.use((req, res) => {
   res.status(200).json({
-    message: "server running.",
+    message: 'server running.',
   });
 });
 
 // not found handler
 app.use((req, res, next) => {
   res.status(404).json({
-    error: "URL not Found",
+    error: 'URL not Found',
   });
 });
 // error handling
